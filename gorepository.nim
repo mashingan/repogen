@@ -1,6 +1,6 @@
 #? stdtmpl | standard
 #
-#import tables
+#import tables, strformat
 #import sqlgen
 #import utils
 #
@@ -27,7 +27,7 @@ import (
 #var idtype = tbl.fields["id"].kind.typeMap
 #var retname = "*entity." & tblname
 #var retnameobj = "entity." & tblname
-#var searchpath = "r.DB.Exec(\"SET search_path TO " & tbl.schema & "\")"
+#var searchpath = fmt"""r.DB.Exec("SET search_path TO {tbl.schema}")"""
 #var hasschema = tbl.schema != ""
 #var errnotfound = namesvc & ".ErrNotFoundError"
 #var errinvalidop = namesvc & ".InvalidSqlOperation"
