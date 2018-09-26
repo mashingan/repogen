@@ -1,11 +1,16 @@
 #? stdtmpl | standard
 #
-#import tables, strformat
+#import tables, strformat, times
 #import sqlgen
 #import utils
 #
-#proc goRepository*(tbl: SqlTable, namesvc, basepath: string): string =
+#proc goRepository*(tbl: SqlTable, namesvc, basepath: string, version = ""): string =
 #result = ""
+/*
+Generated with repogen $version (c) Rahmatullah
+#var generatedTime = format(now(), "dd-MM-yyyy HH:mm:sszzz")
+@ $generatedTime
+*/
 package repository
 
 import (

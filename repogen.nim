@@ -4,6 +4,8 @@ import gorepository
 
 import sqlgen
 
+const version* = "0.1.0"
+
 proc sqlCmd(): string =
   result = ""
   for kind, key, val in getopt():
@@ -34,7 +36,7 @@ proc main =
   for sqltable in sqltbls:
     #echo gorepository(sqltable, svcname, basepath)
     var f = (sqltable.name & ".go").open fmWrite
-    f.write gorepository(sqltable, svcname, basepath)
+    f.write gorepository(sqltable, svcname, basepath, version = version)
     close f
 
 main()
