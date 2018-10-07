@@ -27,12 +27,12 @@ proc main =
     basepath = cfg.getSectionValue("service-path", "base-path")
     sqlf = cfg.getSectionValue("sql", "file")
 
-    sqltbls = sqlf.parseSql.parse.getTables
     inputsql = sqlCmd()
 
   if inputsql != "":
     sqlf = inputsql
 
+  var sqltbls = sqlf.parseSql.parse.getTables
   for sqltable in sqltbls:
     #echo gorepository(sqltable, svcname, basepath)
     var f = (sqltable.name & ".go").open fmWrite
